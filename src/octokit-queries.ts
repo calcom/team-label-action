@@ -19,10 +19,6 @@ export const getTeamSlugsForAuthor = async (
       continue;
     }
 
-    if (!onlySlugs.includes(slug)) {
-      continue;
-    }
-
     try {
       const { data: membership } = await octokit.rest.teams.getMembershipForUserInOrg({
         org,
@@ -30,7 +26,7 @@ export const getTeamSlugsForAuthor = async (
         username,
       });
 
-      if (membership.state === 'active') {
+      if (membership.state === 'active' && onlySlugs.includes(slug)) {
         authorsTeamSlugs.push(slug);
       }
     } catch (error) {
