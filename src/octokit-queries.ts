@@ -18,6 +18,10 @@ export const getTeamSlugsForAuthor = async (
       continue;
     }
 
+    if (!onlySlugs.includes(slug)) {
+      continue;
+    }
+
     try {
       const { data: membership } = await octokit.rest.teams.getMembershipForUserInOrg({
         org,
