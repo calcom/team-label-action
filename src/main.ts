@@ -30,7 +30,7 @@ const run = async (): Promise<void> => {
     const onlyLabels = parseInputList(core.getInput('only-labels'));
 
     // Get all teams in the organization where the PR author is a member
-    const authorsTeamSlugs = await getTeamSlugsForAuthor(octokit, org, author, ignoreLabels);
+    const authorsTeamSlugs = await getTeamSlugsForAuthor(octokit, org, author, ignoreLabels, onlyLabels);
 
     if (authorsTeamSlugs.length < 1) {
       core.info(`${author} does not belong to any teams`);
