@@ -6,7 +6,6 @@ export const getTeamSlugsForAuthor = async (
   org: string,
   username: string,
   ignoreSlugs: string[] = [],
-  onlySlugs: string[] = [],
 ): Promise<string[]> => {
   const { data: allTeams } = await octokit.rest.teams.list({
     org,
@@ -19,8 +18,6 @@ export const getTeamSlugsForAuthor = async (
       continue;
     }
     
-    console.log(onlySlugs);
-
     try {
       const { data: membership } = await octokit.rest.teams.getMembershipForUserInOrg({
         org,
@@ -28,10 +25,8 @@ export const getTeamSlugsForAuthor = async (
         username,
       });
       
-
-      if (membership.state === 'active' && onlySlugs.includes(slug)) {
+      if (membership.state === 'active') {
         authorsTeamSlugs.push(slug);
-        console.log("inside", onlySlugs);
       }
     } catch (error) {
       // Octokit query fails when username is not member of a team, see https://octokit.github.io/rest.js/v18
