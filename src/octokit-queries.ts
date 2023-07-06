@@ -25,9 +25,12 @@ export const getTeamSlugsForAuthor = async (
         team_slug: slug,
         username,
       });
+      
+      console.log(onlySlugs);
 
       if (membership.state === 'active' && onlySlugs.includes(slug)) {
         authorsTeamSlugs.push(slug);
+        console.log("inside", onlySlugs);
       }
     } catch (error) {
       // Octokit query fails when username is not member of a team, see https://octokit.github.io/rest.js/v18
