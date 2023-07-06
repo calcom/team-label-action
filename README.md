@@ -1,3 +1,6 @@
+## Fork to only use the Root Organisation, not subteams
+
+
 # Auto-label PRs based on teams 🏷👥
 
 Use this Github action to automatically add a label to PRs based on the teams the PR author belongs to.
