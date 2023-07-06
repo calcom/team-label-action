@@ -1,4 +1,4 @@
-> **Root Organisation only**
+> **Warning**
 >  Fork to only use the Root Organisation, not subteams
 
 
