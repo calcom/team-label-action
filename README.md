@@ -1,4 +1,5 @@
-## Fork to only use the Root Organisation, not subteams
+> **Root Organisation only**
+>  Fork to only use the Root Organisation, not subteams
 
 
 # Auto-label PRs based on teams 🏷👥
